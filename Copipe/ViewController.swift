@@ -2,17 +2,22 @@ import UIKit
 import PureLayout
 
 class ViewController: UIViewController {
-    let button: UIButton
-    let copyLabel: UILabel
-    let textField: UITextField
+    // MARK: - Static
+    let MaxArraySize: Int = 20
+    
+    // MARK: - Properties
+    private let defaults = NSUserDefaults.standardUserDefaults()
+    private var isMultiMode: Bool = false
+    private var array = [String]()
+    private var timer = NSTimer()
+    
+    // MARK: - UI Elements
+    let copipeStringLabel: UILabel
     let tableView: UITableView
-    var array = [String]()
-    var tableArray = ["first", "second", "third"]
+    
     
     init() {
-        button = UIButton.newAutoLayoutView()
-        copyLabel = UILabel.newAutoLayoutView()
-        textField = UITextField.newAutoLayoutView()
+        copipeStringLabel = UILabel.newAutoLayoutView()
         tableView = UITableView.newAutoLayoutView()
         
         super.init(nibName: nil, bundle: nil)
@@ -22,7 +27,6 @@ class ViewController: UIViewController {
             selector: #selector(update(_:)),
             name: UIPasteboardChangedNotification,
             object: nil)
-
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,35 +37,41 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.whiteColor()
-        
+                
         addSubviews()
         configureSubviews()
         addConstraints()
+        
+        array = getArray()
+        
         tableView.reloadData()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let mode = defaults.objectForKey("copipe-isMultiMode") as? Bool {
+            isMultiMode = mode
+        }
     }
     
     // MARK: - private
     private func addSubviews() {
-        view.addSubview(button)
-        view.addSubview(copyLabel)
-        view.addSubview(textField)
+        view.addSubview(copipeStringLabel)
         view.addSubview(tableView)
     }
     
     private func configureSubviews() {
-        button.setTitle("pasteboard", forState: .Normal)
-        button.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        button.addTarget(
-            self,
-            action: #selector(didTapButton(_:)),
-            forControlEvents: .TouchUpInside
-        )
-        
-        copyLabel.text = "copy"
-        
-        textField.becomeFirstResponder()
+        copipeStringLabel.backgroundColor = UIColor.greenColor()//UIColor(red: 46, green: 204, blue: 113, alpha: 0)
+        copipeStringLabel.numberOfLines = 0
+        copipeStringLabel.font = UIFont.systemFontOfSize(CGFloat(14))
+        if let pasteboardString = UIPasteboard.generalPasteboard().string {
+            copipeStringLabel.text = pasteboardString
+        } else {
+            copipeStringLabel.text = "コピーしている内容が表示されます"
+        }
         
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.registerClass(
             UITableViewCell.self,
             forCellReuseIdentifier: String(UITableViewCell)
@@ -69,45 +79,96 @@ class ViewController: UIViewController {
     }
     
     private func addConstraints() {
-        button.autoPinToTopLayoutGuideOfViewController(self, withInset: 10)
-        button.autoPinEdgeToSuperviewEdge(.Left, withInset: 10)
+        copipeStringLabel.autoPinToTopLayoutGuideOfViewController(self, withInset: 0)
+        copipeStringLabel.autoPinEdgeToSuperviewEdge(.Left)
+        copipeStringLabel.autoPinEdgeToSuperviewEdge(.Right)
+        copipeStringLabel.autoSetDimension(.Height, toSize: 44, relation: .GreaterThanOrEqual)
         
-        copyLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: button, withOffset: 10)
-        copyLabel.autoPinEdgeToSuperviewEdge(.Left, withInset: 10)
-        
-        textField.autoPinEdge(.Top, toEdge: .Bottom, ofView: copyLabel, withOffset: 10)
-        textField.autoPinEdgeToSuperviewEdge(.Left, withInset: 10)
-        textField.autoPinEdgeToSuperviewEdge(.Right, withInset: 10)
-        
-        tableView.autoPinEdge(.Top, toEdge: .Bottom, ofView: textField)
+        tableView.autoPinEdge(.Top, toEdge: .Bottom, ofView: copipeStringLabel)
         tableView.autoPinEdgeToSuperviewEdge(.Left)
         tableView.autoPinEdgeToSuperviewEdge(.Right)
-        tableView.autoPinEdgeToSuperviewEdge(.Bottom)
+        tableView.autoPinToBottomLayoutGuideOfViewController(self, withInset: 0)
     }
-
-    @objc private func didTapButton(sender: UIButton) {
-        if UIPasteboard.generalPasteboard().hasStrings {
-            print("paste")
+    
+    private func getArray() -> [String] {
+        var returnArray = [String]()
+        if let savedArray = defaults.objectForKey("copipe") as? [String] {
+            returnArray = savedArray
+        }
+        return returnArray
+    }
+    
+    private func saveArray() {
+        var tmpArray = [String]()
+        
+        for row in 0..<array.count {
+            if row == MaxArraySize {
+                break
+            }
+            tmpArray.append(array[row])
+        }
+        array = tmpArray
+        defaults.setObject(array, forKey: "copipe")
+        defaults.synchronize()
+    }
+    
+    @objc private func update(notification: NSNotification)  {
+        if let pasteboardString = UIPasteboard.generalPasteboard().string {
+            copipeStringLabel.text = pasteboardString
+            
+        } else {
+            copipeStringLabel.text = "コピーしている内容が表示されます"
         }
     }
-    
-    
-    //関数で受け取った時のアクションを定義
-    @objc private func update(notification: NSNotification)  {
-        let board = UIPasteboard.generalPasteboard()
-        array.append(board.string!)
-    }
-    
 }
 
 extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableArray.count
+        return array.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = tableArray[indexPath.row]
+        cell.textLabel?.text = array[indexPath.row]
         return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let pasteboard = UIPasteboard.generalPasteboard()
+        
+        if isMultiMode {
+            if let pasteboardString = pasteboard.string {
+                pasteboard.string = pasteboardString + "\n" + array[indexPath.row]
+            } else {
+                pasteboard.string = array[indexPath.row]
+            }
+        } else {
+            pasteboard.string = array[indexPath.row]
+        }
+    }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.editing = editing
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        let pasteboard = UIPasteboard.generalPasteboard()
+        if let pasteboardString = pasteboard.string {
+            if array[indexPath.row] == pasteboardString {
+                copipeStringLabel.text = "コピーしている内容が表示されます"
+                pasteboard.strings = []
+            }
+        }
+        array.removeAtIndex(indexPath.row)
+        saveArray()
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
     }
 }

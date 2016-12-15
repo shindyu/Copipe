@@ -1,1 +1,2 @@
 github "PureLayout/PureLayout" "v3.0.2"
+github "thii/FontAwesome.swift" "0.10.1"

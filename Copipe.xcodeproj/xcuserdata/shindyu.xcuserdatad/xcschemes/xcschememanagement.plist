@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>CopipeAction.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>CopipeWidget.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,6 +22,21 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>511B3C541DE5CC1200BA07D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>513064111DE5CF4800C8020C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>513064221DE5CF6900C8020C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>519A6CDB1DDC7212004C00E6</key>
 		<dict>
 			<key>primary</key>

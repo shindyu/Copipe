@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		510E6A751DDC99CA006EFCB6 /* TodayViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510E6A741DDC99CA006EFCB6 /* TodayViewControllerTest.swift */; };
+		511B3C4F1DE5165900BA07D6 /* FontAwesome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511B3C4E1DE5165900BA07D6 /* FontAwesome.framework */; };
+		511B3C501DE5165900BA07D6 /* FontAwesome.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 511B3C4E1DE5165900BA07D6 /* FontAwesome.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		511B4FBE1DE50CF8005702F5 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511B4FBD1DE50CF8005702F5 /* TabbarController.swift */; };
+		511B4FC01DE50D25005702F5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511B4FBF1DE50D25005702F5 /* SettingViewController.swift */; };
+		513064261DE5CF6900C8020C /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513064251DE5CF6900C8020C /* ActionRequestHandler.swift */; };
+		513064281DE5CF6900C8020C /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 513064271DE5CF6900C8020C /* Action.js */; };
+		5130642C1DE5CF6900C8020C /* CopipeAction.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 513064231DE5CF6900C8020C /* CopipeAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		519A6CE01DDC7212004C00E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A6CDF1DDC7212004C00E6 /* AppDelegate.swift */; };
 		519A6CE21DDC7212004C00E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519A6CE11DDC7212004C00E6 /* ViewController.swift */; };
 		519A6CE71DDC7212004C00E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 519A6CE61DDC7212004C00E6 /* Assets.xcassets */; };
@@ -28,6 +35,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5130642A1DE5CF6900C8020C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 519A6CD41DDC7212004C00E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 513064221DE5CF6900C8020C;
+			remoteInfo = CopipeAction;
+		};
 		519A6CF11DDC7212004C00E6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 519A6CD41DDC7212004C00E6 /* Project object */;
@@ -63,6 +77,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				51C245861DDC80C10056FDA7 /* PureLayout.framework in Embed Frameworks */,
+				511B3C501DE5165900BA07D6 /* FontAwesome.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +88,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				5130642C1DE5CF6900C8020C /* CopipeAction.appex in Embed App Extensions */,
 				51C245981DDC8F400056FDA7 /* CopipeWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -82,6 +98,14 @@
 
 /* Begin PBXFileReference section */
 		510E6A741DDC99CA006EFCB6 /* TodayViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewControllerTest.swift; sourceTree = "<group>"; };
+		511B3C4E1DE5165900BA07D6 /* FontAwesome.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesome.framework; path = Carthage/Build/iOS/FontAwesome.framework; sourceTree = "<group>"; };
+		511B4FBD1DE50CF8005702F5 /* TabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		511B4FBF1DE50D25005702F5 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		513064231DE5CF6900C8020C /* CopipeAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CopipeAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		513064251DE5CF6900C8020C /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
+		513064271DE5CF6900C8020C /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
+		513064291DE5CF6900C8020C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		513064301DE5D21200C8020C /* CopipeAction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CopipeAction.entitlements; sourceTree = "<group>"; };
 		519A6CDC1DDC7212004C00E6 /* Copipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Copipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		519A6CDF1DDC7212004C00E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		519A6CE11DDC7212004C00E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,11 +129,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		513064201DE5CF6900C8020C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		519A6CD91DDC7212004C00E6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				51C245851DDC80C10056FDA7 /* PureLayout.framework in Frameworks */,
+				511B3C4F1DE5165900BA07D6 /* FontAwesome.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,13 +182,26 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		513064241DE5CF6900C8020C /* CopipeAction */ = {
+			isa = PBXGroup;
+			children = (
+				513064301DE5D21200C8020C /* CopipeAction.entitlements */,
+				513064251DE5CF6900C8020C /* ActionRequestHandler.swift */,
+				513064271DE5CF6900C8020C /* Action.js */,
+				513064291DE5CF6900C8020C /* Info.plist */,
+			);
+			path = CopipeAction;
+			sourceTree = "<group>";
+		};
 		519A6CD31DDC7212004C00E6 = {
 			isa = PBXGroup;
 			children = (
+				511B3C4E1DE5165900BA07D6 /* FontAwesome.framework */,
 				519A6CDE1DDC7212004C00E6 /* Copipe */,
 				519A6CF31DDC7212004C00E6 /* CopipeTests */,
 				51C2458F1DDC8F400056FDA7 /* CopipeWidget */,
 				510E6A721DDC998F006EFCB6 /* CopipeWidgetTests */,
+				513064241DE5CF6900C8020C /* CopipeAction */,
 				519A6CDD1DDC7212004C00E6 /* Products */,
 				51C245731DDC78010056FDA7 /* Frameworks */,
 			);
@@ -168,6 +213,7 @@
 				519A6CDC1DDC7212004C00E6 /* Copipe.app */,
 				519A6CF01DDC7212004C00E6 /* CopipeTests.xctest */,
 				51C2458C1DDC8F400056FDA7 /* CopipeWidget.appex */,
+				513064231DE5CF6900C8020C /* CopipeAction.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,6 +227,8 @@
 				519A6CE61DDC7212004C00E6 /* Assets.xcassets */,
 				519A6CE81DDC7212004C00E6 /* LaunchScreen.storyboard */,
 				519A6CEB1DDC7212004C00E6 /* Info.plist */,
+				511B4FBD1DE50CF8005702F5 /* TabbarController.swift */,
+				511B4FBF1DE50D25005702F5 /* SettingViewController.swift */,
 			);
 			path = Copipe;
 			sourceTree = "<group>";
@@ -236,6 +284,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		513064221DE5CF6900C8020C /* CopipeAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5130642D1DE5CF6900C8020C /* Build configuration list for PBXNativeTarget "CopipeAction" */;
+			buildPhases = (
+				5130641F1DE5CF6900C8020C /* Sources */,
+				513064201DE5CF6900C8020C /* Frameworks */,
+				513064211DE5CF6900C8020C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CopipeAction;
+			productName = CopipeAction;
+			productReference = 513064231DE5CF6900C8020C /* CopipeAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		519A6CDB1DDC7212004C00E6 /* Copipe */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 519A6CF91DDC7212004C00E6 /* Build configuration list for PBXNativeTarget "Copipe" */;
@@ -250,6 +315,7 @@
 			);
 			dependencies = (
 				51C245971DDC8F400056FDA7 /* PBXTargetDependency */,
+				5130642B1DE5CF6900C8020C /* PBXTargetDependency */,
 			);
 			name = Copipe;
 			productName = Copipe;
@@ -302,6 +368,16 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = shindyu;
 				TargetAttributes = {
+					513064221DE5CF6900C8020C = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = X6PN9T739V;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					519A6CDB1DDC7212004C00E6 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = X6PN9T739V;
@@ -309,6 +385,9 @@
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 0;
 							};
 						};
 					};
@@ -345,11 +424,20 @@
 				519A6CDB1DDC7212004C00E6 /* Copipe */,
 				519A6CEF1DDC7212004C00E6 /* CopipeTests */,
 				51C2458B1DDC8F400056FDA7 /* CopipeWidget */,
+				513064221DE5CF6900C8020C /* CopipeAction */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		513064211DE5CF6900C8020C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				513064281DE5CF6900C8020C /* Action.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		519A6CDA1DDC7212004C00E6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -376,12 +464,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5130641F1DE5CF6900C8020C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				513064261DE5CF6900C8020C /* ActionRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		519A6CD81DDC7212004C00E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				519A6CE21DDC7212004C00E6 /* ViewController.swift in Sources */,
+				511B4FBE1DE50CF8005702F5 /* TabbarController.swift in Sources */,
 				519A6CE01DDC7212004C00E6 /* AppDelegate.swift in Sources */,
+				511B4FC01DE50D25005702F5 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +505,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5130642B1DE5CF6900C8020C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 513064221DE5CF6900C8020C /* CopipeAction */;
+			targetProxy = 5130642A1DE5CF6900C8020C /* PBXContainerItemProxy */;
+		};
 		519A6CF21DDC7212004C00E6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 519A6CDB1DDC7212004C00E6 /* Copipe */;
@@ -431,6 +534,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5130642E1DE5CF6900C8020C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CopipeAction/CopipeAction.entitlements;
+				DEVELOPMENT_TEAM = X6PN9T739V;
+				INFOPLIST_FILE = CopipeAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = shindyu.Copipe.CopipeAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
+			};
+			name = Debug;
+		};
+		5130642F1DE5CF6900C8020C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CopipeAction/CopipeAction.entitlements;
+				DEVELOPMENT_TEAM = X6PN9T739V;
+				INFOPLIST_FILE = CopipeAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = shindyu.Copipe.CopipeAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
+			};
+			name = Release;
+		};
 		519A6CF71DDC7212004C00E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -637,6 +768,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5130642D1DE5CF6900C8020C /* Build configuration list for PBXNativeTarget "CopipeAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5130642E1DE5CF6900C8020C /* Debug */,
+				5130642F1DE5CF6900C8020C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		519A6CD71DDC7212004C00E6 /* Build configuration list for PBXProject "Copipe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
